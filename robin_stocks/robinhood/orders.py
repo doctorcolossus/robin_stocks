@@ -315,8 +315,8 @@ def order_buy_market(symbol, quantity, account_number=None, timeInForce='gtc', e
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -341,8 +341,8 @@ def order_buy_fractional_by_quantity(symbol, quantity, account_number=None, time
     :type account_number: Optional[str]
     :param timeInForce: Changes how long the order will be in effect for. 'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -367,10 +367,12 @@ def order_buy_fractional_by_price(symbol, amountInDollars, account_number=None, 
     :type account_number: Optional[str]
     :param timeInForce: Changes how long the order will be in effect for. 'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
+    :param market_hours: Valid values are 'regular_hours', 'extended_hours' and 'all_day_hours'.
+    :type market_hours: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
     such as the order id, the state of order (queued, confired, filled, failed, canceled, etc.), \
     the price, and the quantity.
@@ -402,8 +404,8 @@ def order_buy_limit(symbol, quantity, limitPrice, account_number=None, timeInFor
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -429,8 +431,8 @@ def order_buy_stop_loss(symbol, quantity, stopPrice, account_number=None, timeIn
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -458,8 +460,8 @@ def order_buy_stop_limit(symbol, quantity, limitPrice, stopPrice, account_number
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -485,8 +487,8 @@ def order_buy_trailing_stop(symbol, quantity, trailAmount, trailType='percentage
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -513,8 +515,8 @@ def order_sell_market(symbol, quantity, account_number=None, timeInForce='gtc', 
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -539,10 +541,12 @@ def order_sell_fractional_by_quantity(symbol, quantity, account_number=None, tim
     :type account_number: Optional[str]
     :param timeInForce: Changes how long the order will be in effect for. 'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
+    :param market_hours: Valid values are 'regular_hours', 'extended_hours' and 'all_day_hours'.
+    :type market_hours: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
     such as the order id, the state of order (queued, confired, filled, failed, canceled, etc.), \
     the price, and the quantity.
@@ -565,8 +569,8 @@ def order_sell_fractional_by_price(symbol, amountInDollars, account_number=None,
     :type account_number: Optional[str]
     :param timeInForce: Changes how long the order will be in effect for. 'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -599,8 +603,8 @@ def order_sell_limit(symbol, quantity, limitPrice, account_number=None, timeInFo
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -626,8 +630,8 @@ def order_sell_stop_loss(symbol, quantity, stopPrice, account_number=None, timeI
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -655,8 +659,8 @@ def order_sell_stop_limit(symbol, quantity, limitPrice, stopPrice, account_numbe
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -682,8 +686,8 @@ def order_sell_trailing_stop(symbol, quantity, trailAmount, trailType='percentag
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the selling of stocks, \
@@ -716,8 +720,8 @@ def order_trailing_stop(symbol, quantity, side, trailAmount, trailType='percenta
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: Optional[str]
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
     :returns: Dictionary that contains information regarding the purchase of stocks, \
@@ -797,10 +801,12 @@ def order(symbol, quantity, side, limitPrice=None, stopPrice=None, account_numbe
     :param timeInForce: Changes how long the order will be in effect for. 'gtc' = good until cancelled. \
     'gfd' = good for the day.
     :type timeInForce: str
-    :param extendedHours: Premium users only. Allows trading during extended hours. Should be true or false.
-    :type extendedHours: Optional[str]
+    :param extendedHours: Premium users only. Allows trading during extended hours.
+    :type extendedHours: Optional[bool]
     :param jsonify: If set to False, function will return the request object which contains status code and headers.
     :type jsonify: Optional[str]
+    :param market_hours: Valid values are 'regular_hours', 'extended_hours' and 'all_day_hours'.
+    :type market_hours: Optional[str]
     :returns: Dictionary that contains information regarding the purchase or selling of stocks, \
     such as the order id, the state of order (queued, confired, filled, failed, canceled, etc.), \
     the price, and the quantity.
@@ -819,6 +825,9 @@ def order(symbol, quantity, side, limitPrice=None, stopPrice=None, account_numbe
         priceType = "ask_price"
     else:
         priceType = "bid_price"
+
+    if extendedHours and market_hours == 'regular_hours':
+        market_hours = 'extended_hours'
 
     if limitPrice and stopPrice:
         price = round_price(limitPrice)
@@ -854,7 +863,7 @@ def order(symbol, quantity, side, limitPrice=None, stopPrice=None, account_numbe
         'time_in_force': timeInForce,
         'trigger': trigger,
         'side': side,
-        'market_hours': market_hours, # choices are ['regular_hours', 'all_day_hours', 'extended_hours']
+        'market_hours': market_hours,
         'extended_hours': extendedHours,
         'order_form_version': 4
     }
@@ -862,9 +871,6 @@ def order(symbol, quantity, side, limitPrice=None, stopPrice=None, account_numbe
     if orderType == 'market':
         if trigger != "stop":
             del payload['stop_price']
-        # if market_hours == 'regular_hours': 
-        #     del payload['extended_hours'] 
-        
     if market_hours == 'regular_hours':
         if side == "buy":
             payload['preset_percent_limit'] = "0.05"
@@ -875,7 +881,7 @@ def order(symbol, quantity, side, limitPrice=None, stopPrice=None, account_numbe
     elif market_hours in ('extended_hours', 'all_day_hours'):
         payload['type'] = 'limit' 
         payload['quantity']=int(payload['quantity']) # round to integer instead of fractional
-        
+
     url = orders_url(account_number=account_number)
     # print(payload)
     data = request_post(url, payload, jsonify_data=jsonify)
